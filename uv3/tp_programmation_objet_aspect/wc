@@ -1,0 +1,2 @@
+echo "Salut tout le monde"
+/usr/bin/wc -l $1

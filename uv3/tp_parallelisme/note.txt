@@ -1,0 +1,18 @@
+montrer le code
+calculer le temps
+preciser
+fichier avec source comme vous voulez, capture d'ecrans, comment relancer...
+compte rendu a partir fin de la semaine (avant 21/12)
+gcc -S
+-ftree-vectorize
+
+-fopt-info-vec-optimized
+
+gcc -pthread -o lock lock.c => with thread
+
+exercise 1: tester avx2
+exercise 2: openmp avant, apres atomic
+
+compte-rendu: code + explication + fig
+
+adrien.guinet@telecom-bretagne.eu
