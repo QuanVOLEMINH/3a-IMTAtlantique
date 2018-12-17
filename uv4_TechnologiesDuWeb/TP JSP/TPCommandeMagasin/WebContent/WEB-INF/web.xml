@@ -28,18 +28,18 @@
   </servlet>
 
   <servlet-mapping> 
-    <servlet-name>entree</servlet-name>
-    <url-pattern>/servlet/entre</url-pattern>
+    <servlet-name>entree</servlet-name>[]
+    <url-pattern>/servlet/entreClient</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>
     <servlet-name>acheter</servlet-name>
-    <url-pattern>/servlet/achat</url-pattern>
+    <url-pattern>/servlet/afficheDisques</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping> 
     <servlet-name>commander</servlet-name>
-    <url-pattern>/servlet/commande</url-pattern>
+    <url-pattern>/servlet/commandeClient</url-pattern>
   </servlet-mapping>
 
 </web-app>

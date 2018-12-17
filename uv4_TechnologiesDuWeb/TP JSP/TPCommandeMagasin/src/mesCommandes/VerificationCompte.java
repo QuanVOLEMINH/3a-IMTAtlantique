@@ -25,19 +25,6 @@ public class VerificationCompte extends HttpServlet {
 
 		inscrireClient = request.getParameter("inscrire");
 		connecterClient = request.getParameter("connecter");
-		if (inscrireClient != null) {
-			nomRecu = request.getParameter("nom");
-			motPasseRecu = request.getParameter("motdepasse");
-			// verifie la condition
-			if (nomRecu == null || motPasseRecu == null || nomRecu.length() < 4 || motPasseRecu.length() < 4) {
-				erreurMessage = "Nom ou mot de passe obligatoires et de plus de 4 caracteres.";
-				response.sendRedirect("formulaire?demande=inscription&erreurInscription=" + erreurMessage);
-			} else {
-				response.sendRedirect("formulaire?demande=connextion&inscriptionFaite=true&nom=" + nomRecu);
-			}
-		} else if (connecterClient != null) {
-			System.out.println("connecter");
-		}
 
 		// cas 1 paramètre inscrire présent
 		// Si les informations passées sont acceptables (nom et mot de passe > 4
@@ -49,6 +36,21 @@ public class VerificationCompte extends HttpServlet {
 		// sinon appel à la servlet FormulairesAcces pour l'inscription avec le
 		// paramètre erreurInscription = nonInscrit
 		// ********************************************************************************************
+
+		if (inscrireClient != null) {
+			nomRecu = request.getParameter("nom");
+			motPasseRecu = request.getParameter("motdepasse");
+			// verifie la condition
+			if (nomRecu == null || motPasseRecu == null || nomRecu.length() < 4 || motPasseRecu.length() < 4) {
+				erreurMessage = "Nom ou mot de passe obligatoires et de plus de 4 caracteres.";
+				response.sendRedirect("formulaire?demande=inscription&erreurInscription=" + erreurMessage);
+			} else {
+				Cookie cookie = new Cookie(nomRecu, motPasseRecu);
+				cookie.setMaxAge(60000);
+				response.addCookie(cookie);
+				response.sendRedirect("formulaire?demande=connexion&inscriptionFaite=true&nom=" + nomRecu);
+			}
+		}
 
 		// cas 2 paramètre connecter présent
 		// si le parametre nom est absent appel à la servlet FormulairesAcces avec
@@ -64,6 +66,24 @@ public class VerificationCompte extends HttpServlet {
 		// erreurInscription = mauvaiseIdentification
 		// ********************************************************************************************
 
+		else if (connecterClient != null) {
+			nomRecu = request.getParameter("nom");
+			motPasseRecu = request.getParameter("motdepasse");
+			cookies = request.getCookies();
+			nomCookie = nomRecu;
+			motPasseCookie = Util.rechercheValeurCookies(cookies, nomCookie);
+			if (motPasseCookie == null) {
+				erreurMessage = "Nom est inconnu";
+				response.sendRedirect("formulaire?demande=connexion?erreurConnexion=" + erreurMessage);
+			} else {
+				if (Util.identique(motPasseRecu, motPasseCookie)) {
+					response.sendRedirect("entreClient?nom=" + nomRecu);
+				} else {
+					erreurMessage = "Mot de passe est incorrect";
+					response.sendRedirect("formulaire?demande=connexion?erreurConnexion=" + erreurMessage);
+				}
+			}
+		}
 	}
 
 	// doGet(HttpServletRequest

@@ -92,6 +92,10 @@ public class FormulairesAcces extends HttpServlet {
 				// prendre le nom si existe
 				nomRecu = request.getParameter("nom");
 				this.infoConnexionetInscription(out, nomRecu);
+				erreurConnexion = request.getParameter("erreurConnextion");
+				if (erreurConnexion != null) {
+					this.printError(out, erreurConnexion);
+				}
 				out.println("<input type='submit' name='connecter' value='Connecter'><br>");
 				out.println("</form>");
 			}
@@ -107,6 +111,6 @@ public class FormulairesAcces extends HttpServlet {
 	}
 
 	private void printSuccessInscriptionMessage(PrintWriter out) {
-		out.println("<p style=\"color:green;\">" + "L'inscription s'est bien realisee." + "</p>");
+		out.println("<p style=\"color:green;\"><strong>" + "L'inscription s'est bien realisee." + "</strong></p>");
 	}
 }
