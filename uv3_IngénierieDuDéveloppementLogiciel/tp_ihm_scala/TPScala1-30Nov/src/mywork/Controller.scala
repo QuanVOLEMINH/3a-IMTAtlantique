@@ -1,22 +1,9 @@
-package exoIHM2
-
-import scala.swing._
+package mywork
 import exoIHM1._
 import mvc._
 
-class Controller(val mbq: ButtonModel, val mbs: ButtonModel)
-  extends exoIHM1.Controller {
-  // Les actions
-  def startAction = {
-    mbq.set(false)
-    mbs.set(true)
-  }
-  def endAction = {
-    mbq.set(true)
-    mbs.set(false)
-  }
-
-  // Les évenements
+class Controller(val activeBtn: ButtonModel, val passiveBtn: ButtonModel) extends exoIHM1.Controller{
+  
   override def event(evt: mvc.AppEvent): Unit = {
     evt match {
       case QUIT if (state == INIT) => quitAction
@@ -30,6 +17,15 @@ class Controller(val mbq: ButtonModel, val mbs: ButtonModel)
       }
       case _ => ()
     }
-    println("Nous sommes dans l'état " + state);
+  }
+  
+  def startAction{
+    activeBtn.set(true);
+    passiveBtn.set(false);
+  }
+  
+  def endAction{
+    activeBtn.set(false);
+    passiveBtn.set(true);
   }
 }
