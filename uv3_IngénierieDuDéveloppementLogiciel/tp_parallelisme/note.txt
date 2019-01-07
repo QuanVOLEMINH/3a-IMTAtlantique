@@ -12,6 +12,10 @@ gcc -pthread -o lock lock.c => with thread
 
 exercise 1: tester avx2
 exercise 2: openmp avant, apres atomic
+-OPENmp critical, openmp atomic
+-export OMP_NUM_THREADS=num
+-gcc -fopenmp
+
 
 compte-rendu: code + explication + fig
 
