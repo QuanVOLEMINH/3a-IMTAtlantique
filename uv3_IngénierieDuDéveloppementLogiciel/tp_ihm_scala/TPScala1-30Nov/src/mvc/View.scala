@@ -1,5 +1,5 @@
 package mvc
 
 trait View {
-  def synchro : Unit
+	def synchro : Unit
 }

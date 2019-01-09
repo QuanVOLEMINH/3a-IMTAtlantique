@@ -4,7 +4,7 @@ import scala.swing._
 import scala.swing.BorderPanel.Position._
 import event._
 import exoIHM2._
-import exoIHM1.{QUIT,START,STOP,MyButton}
+import exoIHM1.{ QUIT, START, STOP, MyButton }
 import mvc._
 
 object Main extends SimpleSwingApplication {
@@ -21,19 +21,19 @@ object Main extends SimpleSwingApplication {
     val dessin = new Canvas(listModel) {
       listenTo(mouse.clicks)
       reactions += {
-         case MousePressed(_, point, _, _, _) =>
-           controller.event(new PRESS(point))
-         case MouseReleased(_, point, _, _, _) =>
-           controller.event(new RELEASE(point))
+        case MousePressed(_, point, _, _, _) =>
+          controller.event(new PRESS(point))
+        case MouseReleased(_, point, _, _, _) =>
+          controller.event(new RELEASE(point))
       }
     }
     listModel.addView(dessin)
-    
+
     val buttonList = List(
-        new ButtonView("Quit", QUIT, quitButtonModel),
-        new ButtonView("Start",START, quitButtonModel),
-        new ButtonView("Stop",STOP, stopButtonModel))
-   
+      new ButtonView("Quit", QUIT, quitButtonModel),
+      new ButtonView("Start", START, quitButtonModel),
+      new ButtonView("Stop", STOP, stopButtonModel))
+
     // Les boutons
     val buttons = new BoxPanel(Orientation.Vertical) {
       buttonList.foreach(b => contents += b)

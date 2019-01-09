@@ -1,4 +1,5 @@
 package mesCommandes;
+
 public class Disque {
 	String nom;
 	String titre;
@@ -6,44 +7,46 @@ public class Disque {
 	String reference;
 	int annee;
 	String image;
-	
-public	Disque( String titre, String nom, int prix, String reference, int annee, String image ) {
-		this.nom= nom;
+
+	public Disque(String titre, String nom, int prix, String reference, int annee, String image) {
+		this.nom = nom;
 		this.titre = titre;
 		this.prix = prix;
 		this.reference = reference;
-		this.annee  = annee;
-		this.image  = image;
-}
-
-public	String toString(){
-		return " disque : " + titre  + ",  Chanteur  "  +  titre  + ", année   "  + annee + ", prix  "   + prix ;
+		this.annee = annee;
+		this.image = image;
 	}
 
-public	String image(){
-	return image;
-}
-	
-public	String getNom(){
-	return nom;
-}
+	public String toString() {
+		return " disque : " + titre + ",  Chanteur  " + titre + ", année   " + annee + ", prix  " + prix;
+	}
 
-public	String getTitre(){
-	return titre;
-}
+	public String image() {
+		return image;
+	}
 
-public	String getReference(){
-	return reference;
-}
+	public String getNom() {
+		return nom;
+	}
 
-public	String getImage(){
-	return image;
-}
-public	int getPrix(){
-	return prix;
-}
-public	int getAnnee(){
-	return annee;
-}
+	public String getTitre() {
+		return titre;
+	}
+
+	public String getReference() {
+		return reference;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public int getPrix() {
+		return prix;
+	}
+
+	public int getAnnee() {
+		return annee;
+	}
 
 }

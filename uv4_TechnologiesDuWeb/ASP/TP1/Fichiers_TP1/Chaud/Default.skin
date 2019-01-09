@@ -1,0 +1,17 @@
+<asp:AdRotator runat="server" AdvertisementFile="PublicationsBanniere.xml" BorderColor="#FEF869" BorderStyle="Solid" BorderWidth="1px"/>
+
+<asp:DropDownList ForeColor="#003063" runat="server" ></asp:DropDownList>
+
+<asp:Label runat="server" BackColor="transparent" width="140px" height="15px" align="right"></asp:Label>
+<asp:TextBox runat="server" BackColor="transparent" valign="middle" border="1px solid #929292" width="140px" height="15px" ForeColor="#003063"></asp:TextBox>
+                
+<asp:GridView SkinId="tableMaitre" CssClass="gridcontent" runat="server" GridLines="none"> 
+  <SelectedRowStyle BackColor="#FFFBC6" />
+</asp:GridView>
+<asp:GridView SkinId="tableDetails" CssClass="gridcontent" runat="server"  GridLines="none" > 
+  <RowStyle BackColor="#FFFBC6" ></RowStyle>
+</asp:GridView>
+
+<asp:DetailsView runat="server" FieldHeaderStyle-HorizontalAlign="Right" BorderStyle="None" BorderWidth="0" CellPadding="5"  Width="460px" >
+  <FieldHeaderStyle CssClass="headercell" ></FieldHeaderStyle>
+</asp:DetailsView>
