@@ -1,0 +1,29 @@
+Si vous avez l'erreur :
+"WebForms UnobtrusiveValidationMode nécessite un ScriptResourceMapping pour 'jquery'.
+ Ajoutez un ScriptResourceMapping nommé jquery (sensible à la casse).".
+
+voici la solution :
+Il faut ajouter les lignes suivantes au fichier Web.config, dans la balise <configurations>
+
+<appSettings>
+    <add key="ValidationSettings:UnobtrusiveValidationMode" value="None" />
+</appSettings>
+
+et
+
+entre <system.web> et </system.web>
+<authentication mode="Forms" />
+
+
+
+Pour en savoir plus :
+http://www.developpez.net/forums/d1360365/dotnet/developpement-web-net/asp-net/scriptresourcemapping-jquery-absent/
+
+Il faut également ajoutet le kit outils pour SQL server Express Local DB
+http://msdn.microsoft.com/en-us/data/hh297027
+
+Et SQL Serveur 2016 SP1  Express Edition [en mode basique
+https://www.microsoft.com/en-us/sql-server/sql-server-editions-express
+sélectionner "Try SQL Server 2016 Express for free"
+
+

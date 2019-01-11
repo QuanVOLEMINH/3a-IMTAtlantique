@@ -1,0 +1,5 @@
+Pour lancer le Fichier le fichier solution_BD.bat vous devez éventuellement modifier le chemin d'accès à la commande SqlLocalDB.exe.
+
+Si vous avez un problème pour la création de l'instance changer alors son nom.
+
+

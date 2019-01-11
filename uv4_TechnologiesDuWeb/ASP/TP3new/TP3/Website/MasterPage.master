@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="head" runat="server">
+        </asp:ContentPlaceHolder>
+    </title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- Zone : En tête -->
+        <div class="header">
+            <!-- Zone : menu en haut de la page -->
+            <div class="menua">Plan du site | Contactez-nous | Ajoutez aux favoris</div>
+            <!-- Zone : panneau publicitaire -->
+            <div class="rotator">
+                <asp:AdRotator ID="AdRotator1" runat="server" />
+            </div>
+            <!-- Zone : barre de navigation affichant le chemin de la page en cours -->
+            <div class="nav"></div>
+        </div>
+
+        <!-- Zone : Centre -->
+        <div class="page">
+            <!-- Zone : Zone de navigation à gauche de la page  -->
+            <div id="sidebar">
+                <!--Zone : Espace membre  -->
+                <h1>Espace membre</h1>
+                <asp:LoginView ID="LoginView1" runat="server">
+                    <AnonymousTemplate>
+                        <h2>Bonjour! Pour passer une annonce vous devez vous identifier.</h2>
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        <h2>Bonjour&nbsp;<asp:LoginName ID="LoginName2" runat="server" />&nbsp;!<h2>
+                    </LoggedInTemplate>
+                </asp:LoginView>
+                <div id="liensEspaceMembre">
+                    <ul class="link">
+                        <li>
+                            <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/MaSelectionDAnnonces.aspx" Text="Ma sélection d'annonces">HyperLink</asp:HyperLink>
+                        </li>
+                    </ul>
+                </div>
+                <hr />
+                <!—Zone : Services des annonces proposés par le site  -->           
+            <h1>Nos Annonces</h1>
+                <h2>Consultez toutes nos annonces et passez vos annonces en ligne</h2>
+            </div>
+            <!-- Zone : Zone contenant le contenu des pages enfants dans un contrôle -->
+            <div id="content">
+                <asp:ContentPlaceHolder ID="Main" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </div>
+
+        <!-- Zone : Pied de page -->
+        <div class="footer">
+            <asp:Literal ID="IltPiedDePage" runat="server" Text="AffairesSansRisque | Adresse | Tel : 0 800 888 888 | Fax : 0 111 111 999"></asp:Literal>
+        </div>
+    </form>
+</body>
+</html>
