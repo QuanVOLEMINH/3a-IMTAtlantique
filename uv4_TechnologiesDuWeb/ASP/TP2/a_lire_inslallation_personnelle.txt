@@ -1,0 +1,16 @@
+Ce qu'il faut faire pour mettre en oeuvre le TP2 (gestion avec la base de données)
+
+1°) Installer SQL Server Express LocalDB 2014
+téléchargement
+https://www.microsoft.com/fr-FR/download/details.aspx?id=42299
+
+Vous sélectionnez éventuellement dans un premier temps SQL Server Express 2014
+Puis : SQL Server 2014 64 bits Express LocalDB (ou la version 32 bits)
+Puis la langue, celle de votre Visual Studio.
+
+
+2°) Lorsque vous avez mis la base de données dans votre projet sous le répertoire "App_Data", vous devez ouvrir l'Explorateur de Serveur (Menu "Affichage)
+Vous sélectionner la base de données "AffairesSansRisque_Data" et à l'aide du menu contextuel lancer "Nouvelle Connexion"
+Répondre OK.
+
+Vous serez peut-être amené à faire cette dernière action à chaque fois que vous relancez à l'aide de Visual Studio votre site Web
