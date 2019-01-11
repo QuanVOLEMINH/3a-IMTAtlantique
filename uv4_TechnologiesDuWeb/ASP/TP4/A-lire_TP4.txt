@@ -1,0 +1,18 @@
+﻿Dans la partie 3 du TP4 d'ASP, il manque une propriété à l'élément <aspataList> 
+
+pour que la méthode DataList1_ItemDataBound soit 
+appelée :
+OnItemDataBound="DataList1_ItemDataBound"
+
+
+
+Il faut ajouter dans le fichier web.config entre
+<system.web> 
+...
+  <profile defaultProvider="AspNetSqlProfileProvider">
+    <properties>
+      <add name="MaSelectionDAnnonces" type="AnnoncesFavorites" serializeAs="Xml"/>
+    </properties>
+  </profile>
+...
+</systel.web>
