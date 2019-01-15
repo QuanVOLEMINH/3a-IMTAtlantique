@@ -1,0 +1,6 @@
+Login
+	nom: quan
+	mdp: asp.net
+
+Machine à l'école: 
+	VS2015, SQL Server Express 2012

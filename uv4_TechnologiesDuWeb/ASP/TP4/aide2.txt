@@ -1,0 +1,18 @@
+
+Solution  donné par Armand Foucault  pour le TP 4
+--------------------------- ---------------------
+ Pour que le Profile provider reconnaisse la propriété Profile.MaSelectionDAnnonces, ajouter la balise profile suivante dans Web.config :
+
+<configuration>
+    ...
+    <system.web>
+        ...
+        <profile>
+            <properties>
+                <add name="MaSelectionDAnnonces" type="AnnoncesFavorites" />
+            </properties>
+        </profile>
+    </system.web>
+</configuration>
+
+La classe AnnoncesFavorites.cs doit avoir été importée dans le projet (dans App_Code).

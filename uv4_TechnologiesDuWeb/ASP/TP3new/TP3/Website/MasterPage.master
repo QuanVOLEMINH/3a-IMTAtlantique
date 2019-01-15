@@ -43,7 +43,7 @@
                             <asp:LoginStatus ID="LoginStatus1" runat="server" />
                         </li>
                         <li>
-                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/MaSelectionDAnnonces.aspx" Text="Ma sélection d'annonces">HyperLink</asp:HyperLink>
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/MaSelectionDAnnonces.aspx" Text="Ma sélection d'annonces"></asp:HyperLink>
                         </li>
                     </ul>
                 </div>
