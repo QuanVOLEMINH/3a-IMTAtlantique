@@ -9,7 +9,7 @@
             <asp:Parameter Name="Ann_Id" Type="Int32" />
         </DeleteParameters>
     </asp:ObjectDataSource>
-    <asp:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AutoGenerateColumns="false" SkinID="tableMaitre">
+    <asp:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" AutoGenerateColumns="False" SkinID="tableMaitre" style="margin-right: 0px" DataKeyNames="Ann_Id" AllowPaging="True" AllowSorting="True">
         <Columns>
             <asp:BoundField DataField="Ann_Email" HeaderText="Email" SortExpression="Ann_Email" />
             <asp:BoundField DataField="Ann_Ville" HeaderText="Ville" SortExpression="Ann_Ville" />
