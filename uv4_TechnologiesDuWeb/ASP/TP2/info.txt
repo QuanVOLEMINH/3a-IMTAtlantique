@@ -1,0 +1,2 @@
+Ma machine:
+ - VS Studio Professionnal 2017, MSSQL Server 2017
