@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadApp", "ThreadApp\ThreadApp.csproj", "{8505D6B5-74D0-478C-AC0B-CECE8AA74057}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "console_premier", "console_premier\console_premier.csproj", "{C0B2A481-BD8C-42B4-9C68-E0614313491D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ballon", "ballon\ballon.csproj", "{882ADA79-972B-4EAD-A6E6-1A6FB5E5DABE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8505D6B5-74D0-478C-AC0B-CECE8AA74057}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8505D6B5-74D0-478C-AC0B-CECE8AA74057}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8505D6B5-74D0-478C-AC0B-CECE8AA74057}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8505D6B5-74D0-478C-AC0B-CECE8AA74057}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0B2A481-BD8C-42B4-9C68-E0614313491D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0B2A481-BD8C-42B4-9C68-E0614313491D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0B2A481-BD8C-42B4-9C68-E0614313491D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0B2A481-BD8C-42B4-9C68-E0614313491D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{882ADA79-972B-4EAD-A6E6-1A6FB5E5DABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{882ADA79-972B-4EAD-A6E6-1A6FB5E5DABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{882ADA79-972B-4EAD-A6E6-1A6FB5E5DABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{882ADA79-972B-4EAD-A6E6-1A6FB5E5DABE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C113D33C-510B-48CB-834B-8D180CADD1A6}
+	EndGlobalSection
+EndGlobal
