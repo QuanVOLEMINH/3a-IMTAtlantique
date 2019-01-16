@@ -1,0 +1,32 @@
+﻿<Window x:Class="ProcessApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProcessApp"
+        mc:Ignorable="d"
+        Title="Process Manager" Height="450" Width="600" ResizeMode="NoResize" Closing="Close_Window">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Menu x:Name="menu" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="594" Margin="0,0,-6,0">
+            <MenuItem Header="Démarrer">
+                <MenuItem Header="Exécuter ballon" Click="Run_Ballon"/>
+                <MenuItem Header="Exécuter premier" Click="Run_Premier"/>
+            </MenuItem>
+            <MenuItem Header="Supprimer">
+                <MenuItem Header="Supprimer dernier" Click="Delete_Last_Process"/>
+                <MenuItem Header="Supprimer dernier ballon" Click="Delete_Last_Ballon" />
+                <MenuItem Header="Supprimer dernier premier" Click="Delete_Last_Premier"/>
+                <MenuItem Header="Supprimer tout" Click="Delete_All_Processes"/>
+            </MenuItem>
+            <MenuItem Header="Masquer">
+                <MenuItem Header="Masquer les processus en cours" Click="Show_Running_Processes"/>
+            </MenuItem>
+            <MenuItem Header="Quitter" Click="Quit"/>
+        </Menu>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="347" Margin="100,50,0,0" VerticalAlignment="Top" Width="400"/>
+
+    </Grid>
+</Window>

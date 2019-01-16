@@ -1,0 +1,30 @@
+﻿<Window x:Class="ThreadApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThreadApp"
+        mc:Ignorable="d"
+        Title="Gestion de threads" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Menu x:Name="menu" HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="792">
+            <MenuItem Header="Lancement threads">
+                <MenuItem Header="ballon" Click="Run_Ballon_Thread"/>
+                <MenuItem Header="premier" Click="Run_Premier_Thread"/>
+            </MenuItem>
+            <MenuItem Header="Pause / Relance" Click="Pause_Resume"/>
+            <MenuItem Header="Suppression">
+                <MenuItem Header="Supprimer le dernier thread" Click="Delete_Last_Thread"/>
+                <MenuItem Header="Supprimer le dernier `ballon`" Click="Delete_Last_Ballon"/>
+                <MenuItem Header="Supprimer le dernier `nb premier`" Click="Delete_Last_Premier"/>
+                <MenuItem Header="Supprimer tous les threads" Click="Delete_All_Threads"/>
+            </MenuItem>
+            <MenuItem Header="Quitter" Click="Quit"/>
+        </Menu>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="272" Margin="50,100,0,0" VerticalAlignment="Top" Width="686"/>
+
+    </Grid>
+</Window>
