@@ -43,7 +43,6 @@ public partial class ConsulterAnnoncesParRegion : System.Web.UI.Page
         //Récupérer l'Id de l'annonce en cours
         DataRowView currentRow = (DataRowView)e.Item.DataItem;
         int CurrentAnnonceId = (int)currentRow.Row.ItemArray[0];
-        Console.WriteLine(CurrentAnnonceId);
         LinkButton Lien = (LinkButton)e.Item.FindControl("ButtonSelection");
         if (Profile.MaSelectionDAnnonces == null || !Profile.MaSelectionDAnnonces.EstDansListeAnnoncesFavorites(CurrentAnnonceId))
         {

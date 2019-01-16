@@ -1,0 +1,11 @@
+Login
+ - nom: quan
+ - mdp: asp.net
+
+Machine à l'école: 
+ - VS2015, SQL Server Express 2012
+
+Si ça marche pas:
+ - arrêtez tous les processus du sqlserver
+ - supprimez ASPNETDB.MDF
+ - créez un compte sur la page login
