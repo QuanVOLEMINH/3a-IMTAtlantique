@@ -3,10 +3,8 @@ package mesCommandes;
 import java.io.*;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-@WebServlet("/servlet/voirCompte")
 public class VerificationCompte extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -71,16 +69,18 @@ public class VerificationCompte extends HttpServlet {
 			motPasseRecu = request.getParameter("motdepasse");
 			cookies = request.getCookies();
 			nomCookie = nomRecu;
-			motPasseCookie = Util.rechercheValeurCookies(cookies, nomCookie);
+			if (cookies != null)
+				motPasseCookie = Util.rechercheValeurCookies(cookies, nomCookie);
+
 			if (motPasseCookie == null) {
 				erreurMessage = "Nom est inconnu";
-				response.sendRedirect("formulaire?demande=connexion?erreurConnexion=" + erreurMessage);
+				response.sendRedirect("formulaire?demande=connexion&erreurConnexion=" + erreurMessage);
 			} else {
 				if (Util.identique(motPasseRecu, motPasseCookie)) {
 					response.sendRedirect("entreClient?nom=" + nomRecu);
 				} else {
 					erreurMessage = "Mot de passe est incorrect";
-					response.sendRedirect("formulaire?demande=connexion?erreurConnexion=" + erreurMessage);
+					response.sendRedirect("formulaire?demande=connexion&erreurConnexion=" + erreurMessage);
 				}
 			}
 		}

@@ -3,10 +3,8 @@ package mesCommandes;
 import java.io.*;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-@WebServlet("/servlet/formulaire")
 public class FormulairesAcces extends HttpServlet {
 	/**
 	 * 
@@ -15,17 +13,18 @@ public class FormulairesAcces extends HttpServlet {
 
 	// au prochain TP nous utiliserons des formulaires plus élaborés
 	private void infoConnexionetInscription(PrintWriter out, String nom) {
-		out.println("nom");
-		out.println("<input type='text' size='20' name='nom' value='" + ((nom != null) ? nom : "") + "'  >  <br> ");
-		out.println("mot de passe");
-		out.println("<input type='password' size='20' name='motdepasse'> <br>");
+		out.println("Nom");
+		out.println("<input type='text' class='input' size='20' name='nom' value='" + ((nom != null) ? nom : "")
+				+ "'  >  <br> ");
+		out.println("Mot de passe");
+		out.println("<input type='password' class='input' size='20' name='motdepasse'> <br>");
 	}
 
 	private void infoInscription(PrintWriter out) {
-		out.println("email");
-		out.println("<input type='text' size='20' name='mail'> <br>");
-		out.println("telephone");
-		out.println("<input type='text' size='20' name='telephone'> <br>");
+		out.println("Email");
+		out.println("<input type='email' class='input' size='20' name='mail'> <br>");
+		out.println("Telephone");
+		out.println("<input type='number' class='input' size='20' name='telephone'> <br>");
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -39,7 +38,7 @@ public class FormulairesAcces extends HttpServlet {
 		// ********************************************************************************************
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		// out.println("vous êtes dans la servlet FormulaireACCES, modifiez la");
+		this.printOpenHtml(out);
 
 		demande = request.getParameter("demande");
 		// Les 2 méthodes infoInscription et infoConnexionetInscription sont à votre
@@ -64,7 +63,7 @@ public class FormulairesAcces extends HttpServlet {
 				if (erreurInscription != null) {
 					this.printError(out, erreurInscription);
 				}
-				out.println("<input type='submit' name='inscrire' value='Submit'><br>");
+				out.println("<hr><input type='submit' name='inscrire' value='Inscrire' class='button is-primary'><br>");
 				out.println("</form>");
 
 				// ********************************************************************************************
@@ -92,14 +91,17 @@ public class FormulairesAcces extends HttpServlet {
 				// prendre le nom si existe
 				nomRecu = request.getParameter("nom");
 				this.infoConnexionetInscription(out, nomRecu);
-				erreurConnexion = request.getParameter("erreurConnextion");
+				erreurConnexion = request.getParameter("erreurConnexion");
 				if (erreurConnexion != null) {
 					this.printError(out, erreurConnexion);
 				}
-				out.println("<input type='submit' name='connecter' value='Connecter'><br>");
+				out.println(
+						"<hr><input type='submit' name='connecter' value='Connecter' class='button is-primary'><br>");
 				out.println("</form>");
 			}
 		}
+
+		this.printCloseHtml(out);
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -111,6 +113,18 @@ public class FormulairesAcces extends HttpServlet {
 	}
 
 	private void printSuccessInscriptionMessage(PrintWriter out) {
-		out.println("<p style=\"color:green;\"><strong>" + "L'inscription s'est bien realisee." + "</strong></p>");
+//		out.println("<p style=\"color:green;\"><strong>" + "L'inscription s'est bien realisee." + "</strong></p>");
+		out.println("<div class=\"notification is-primary\">" + "<strong>L'inscription s'est bien realisee.</strong>"
+				+ "</div>");
+	}
+
+	private void printOpenHtml(PrintWriter out) {
+		out.println("<!DOCTYPE html><html><head><meta charset=\"ISO-8859-1\">" + "<title>Super Marché du disque</title>"
+				+ "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css\">"
+				+ "</head><body><div class=\"container\"><hr><div class=\"columns\"><div class=\"column is-one-third\">");
+	}
+
+	private void printCloseHtml(PrintWriter out) {
+		out.println("</div></div></div></body></html>");
 	}
 }

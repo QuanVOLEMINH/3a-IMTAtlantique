@@ -22,7 +22,7 @@ public class Stock {
 			{ "Concert Matmatah", "Matmatah", "15", "disque002311999", "1999", "ConcertMatmatah.jpg" },
 			{ "La Tri Yann ou l'ignorance", "Tri Yann", "20", "disque006212008", "2008", "TriYannIgnorance.jpg" },
 			{ "Le plus gros est fait", "Les Goristes", "25", "disque002322011", "2011", "GrosGoristes.jpg" },
-			{ "Happy Bordée", "Soldat Louis", "23", "disque002322009", "2017", "HAPPY BORDEE" },
+			{ "Happy Bordée", "Soldat Louis", "23", "disque002322009", "2017", "cd-soldat-louis-happy-bordee.jpg" },
 			{ "Festival de Lorient", "Cercles Celtiques", "35", "disque002322008", "2018",
 					"festival-interceltique-lorient-2018.jpg" },
 			{ "kan ar bed", "Chorales", "22", "disque002322007", "2016", "cd-kan-ar-bed.jpg" },
