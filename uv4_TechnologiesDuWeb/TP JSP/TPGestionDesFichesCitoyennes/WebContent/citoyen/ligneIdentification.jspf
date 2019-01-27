@@ -1,0 +1,19 @@
+<table class="Casebleu1"
+	style="border: 1; margin: 0; padding: 0px; width: 800;">
+	<tr>
+		<td>
+			<h2>
+				Demandeur ou service : nom :
+				<%=nom%>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; identifiant:
+				<%=identifiant%>
+			</h2>
+		</td>
+		<td>
+			<h2>
+				Date :
+				<%=dateDemande%>
+			</h2>
+		</td>
+	</tr>
+</table>
