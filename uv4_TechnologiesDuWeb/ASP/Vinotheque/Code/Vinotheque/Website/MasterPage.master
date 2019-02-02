@@ -12,11 +12,19 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="header"></div>
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+        <div class="header">
+            <div class="menu"></div>
         </div>
+        <div class="page">
+            <div id="sidebar">
+                <div id="liensEspaceMembre"></div>
+            </div>
+            <div id="content">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div class="footer"></div>
     </form>
 </body>
 </html>

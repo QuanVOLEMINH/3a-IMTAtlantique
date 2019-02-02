@@ -29,7 +29,7 @@ public class FiltreEntree implements Filter {
 		// servlet "FormulairesAcces" pour s'inscrire
 		// Autrement on continue (chain.doFilter).
 		// ********************************************************************************************
-		System.out.println("config ok");
+		System.out.println("filtre entree");
 		nom = (String)session.getAttribute("nomClient");
 		if (nom != null && session.getAttribute("stockCourant") != null) {
 			motPasse = Util.rechercheValeurCookies(cookies, nom);

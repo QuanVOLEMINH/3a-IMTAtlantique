@@ -37,10 +37,13 @@ public class EnregistrerCommande extends HttpServlet {
 		out.println("<head>");
 		out.println("<title> votre commande </title>");
 		out.println("<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1' >");
-		out.println("<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css\">");
+		out.println(
+				"<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css\">");
 		out.println("</head>");
 		out.println("<body bgcolor=\"white\">");
 		out.println("<div class='container'>");
+		out.println("<hr>");
+		out.println("<h1 class='title'> Enregistre Commande </h1>");
 		out.println("<a HREF=afficheDisques> Vous pouvez commandez un autre disque </a><br> ");
 		out.println("<A HREF=facture> Fin de la commande et demande de la facture  de   " + nom.toUpperCase()
 				+ " </A><br> ");

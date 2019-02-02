@@ -18,12 +18,12 @@ public class FiltreSortie implements Filter {
 		// il vide le caddy du client en cours
 		// ************************************************************
 		chain.doFilter(request, response);
-
+		
+		// post - servlet
 		nom = (String) session.getAttribute("nomClient");
 		if (nom != null) {
 			Magasin.lesCaddy.get(nom).clear();
 		}
 		System.out.println("sortie avec succes");
 	}
-	// ************************************************************
 }

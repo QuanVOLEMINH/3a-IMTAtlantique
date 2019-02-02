@@ -7,7 +7,7 @@ import java.sql.*;
 public class Magasin {
 	public static TreeMap<String, ArrayList<String>> lesCaddy = new TreeMap<String, ArrayList<String>>();
 	// String
-
+	private static int total = 0 ;
 	static public void afficherContenuCaddy(ArrayList<String> caddy, PrintWriter out, String repertoire) {
 		Disque leDisque;
 		Iterator<String> iter = caddy.iterator();
@@ -40,12 +40,12 @@ public class Magasin {
 
 	static public void afficherDisquesDansBase(ResultSet rs, PrintWriter out, String repertoire) {
 		Disque leDisque;
-
+		total = 0;
 		try {
 			out.println("<table class='table is-bordered'>");
 			while (rs.next()) {
-
 				leDisque = Stock.trouveDisque(rs.getString("nomarticle"));
+				total+=leDisque.getPrix();
 				out.println("<tr> <td>" + leDisque.getTitre() + "  ,  " + leDisque.getNom() + " ,  "
 						+ leDisque.getPrix() + " Euros  ,  Année :" + leDisque.getAnnee() + "</td>");
 				out.println("<td> <IMG SRC= '" + repertoire + "/images/" + leDisque.getImage()
@@ -57,5 +57,9 @@ public class Magasin {
 			System.out.println(" - probeme ajoute " + E.getClass().getName());
 			E.printStackTrace();
 		}
+	}
+	
+	static public void printTotalPrice(PrintWriter out) {
+		out.println("<br><h3><strong>Total: " + total + " euros </strong></h3><br>");
 	}
 }
