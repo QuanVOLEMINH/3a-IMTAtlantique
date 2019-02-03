@@ -7,8 +7,17 @@
     <h2>Bienvenue au site Web de la société "La Vinothèque", fondée en 1962</h2>
     <h3>Nous vous proposons des vins de qualité provenant de 10 régions françaises    </h3>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:laVinotheque %>" SelectCommand="SELECT DISTINCT [region] FROM [vins]"></asp:SqlDataSource>
-    <asp:BulletedList ID="BulletedList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="region" DataValueField="region">
-    </asp:BulletedList>
-    <asp:Button ID="Button1" runat="server" Text="Voir notre catalogue" />
+    <ol>
+        <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+            <ItemTemplate>
+
+                <li><%# Eval("region") %></li>
+
+            </ItemTemplate>
+        </asp:Repeater>
+    </ol>
+    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Catalogue.aspx" CssClass="button">Voir notre catalogue</asp:HyperLink>
+    
+
 </asp:Content>
 

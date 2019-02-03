@@ -14,7 +14,7 @@
             <asp:ControlParameter ControlID="RegionsDropDownList" Name="Reg_Id" PropertyName="SelectedValue" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <asp:DataList ID="DataList1" runat="server" DataKeyField="Ann_Id" DataSourceID="dsAnnonces" OnItemDataBound="DataList1_ItemDataBound">
+    <asp:DataList ID="DataList1" runat="server" DataKeyField="Ann_Id" DataSourceID="dsAnnonces" OnItemDataBound="DataList1_ItemDataBound" >
         <ItemTemplate>
             <div id="annonce">
                 <div id="entete">
@@ -28,7 +28,7 @@
             <asp:Label ID="Ann_TexteLabel" runat="server" Text='<%# Eval("Ann_Texte") %>' EnableTheming="false"></asp:Label>
             <br />
             <asp:LinkButton ID="ButtonSelection" runat="server" Text="Ajouter à ma selection" CommandArgument='<%# Eval("Ann_Id") %>' OnCommand="ModifierLaSelection"></asp:LinkButton>
-        </ItemTemplate>
+        </ItemTemplate>         
     </asp:DataList>
 
 </asp:Content>

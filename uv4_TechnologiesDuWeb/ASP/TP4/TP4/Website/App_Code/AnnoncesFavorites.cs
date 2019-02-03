@@ -17,7 +17,7 @@ public class AnnoncesFavorites
     [XmlIgnore] // Ce champ ne doit pas être sérialisé !
     public static readonly DataSet EmptyDataSet = RecupererToutesLesAnnonces();
 
-    public List<int> _AnnoncesFavorites = new List<int>();
+    public static List<int> _AnnoncesFavorites = new List<int>();
 
     public void AjouterAnnonce(int id)
     {
