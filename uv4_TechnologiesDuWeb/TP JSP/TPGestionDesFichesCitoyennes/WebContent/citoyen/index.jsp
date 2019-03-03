@@ -30,7 +30,11 @@
 	%>
 
 	<p style="color: red">
-		<%=erreur == null ? "" : erreur%>		
+		<%=erreur == null ? "" : erreur%>
+	</p>
+
+	<p style="color: green">
+		<%=finsession == null ? "" : finsession%>
 	</p>
 
 	<h2>Veuillez vous identifier ou creer un compte</h2>

@@ -247,7 +247,7 @@ td {
 	padding: 2px;
 	font-size: 13px;
 	margin: 0;
-	border: 0px solid #a9a9a9;
+	border: 1px solid #a9a9a9;
 }
 
 th {
@@ -256,6 +256,7 @@ th {
 	margin: 0;
 	border: 2px solid #a9a9a9;
 }
+
 
 /*  --  table  data title --*/
 #title {

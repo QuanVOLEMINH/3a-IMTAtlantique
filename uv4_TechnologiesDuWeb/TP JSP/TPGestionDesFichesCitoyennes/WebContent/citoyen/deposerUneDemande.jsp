@@ -52,7 +52,9 @@
 					<button name="valider" type="submit" value="valider"
 						style="width: 240px">Valider</button>
 					<button name="abandonner" type="button" value="abandonner"
-						style="width: 240px">Abandonner</button> <!--
+						style="width: 240px"
+						onClick="self.location.href='mesInformationsPersonnelles.jsp'">Abandonner</button>
+					<!--
 *partie 2
 * Rajoutez  dans le formulaire de la page deposerUneDemande.jsp un bouton supplémentaire  
   " validez en ajoutant un document",  de nom "ajoutdoc"

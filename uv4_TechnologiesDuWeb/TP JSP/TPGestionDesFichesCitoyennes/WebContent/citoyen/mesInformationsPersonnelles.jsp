@@ -61,15 +61,15 @@
 							<tr>
 								<td>Nom : <%=nom%>
 								</td>
-								<td>prenom : <INPUT type=text name="prenom" id="prenom"
-									style="border: 0px" value="<c:out value="${rowa.prenom }" />">
+								<td>Prenom : <INPUT type=text name="prenom" id="prenom"
+									style="border: 0px" value="<c:out value="${rowa.prenom}" />">
 								</td>
-								<TD>adresse de l'administre : numero, Rue, lieu dit <INPUT
+								<TD>Adresse de l'administre : numero, rue, lieu dit <INPUT
 									type=text name="rue" size="40" id="rue" style="border: 0px"
-									value="${rowa.rue }">
+									value="${rowa.rue}">
 								</td>
-								<td>code postel, ville <INPUT type=text name="ville"
-									size="40" value="${rowa.ville }" id="ville" style="border: 0px">
+								<td>Code postel, ville <INPUT type=text name="ville"
+									size="40" value="${rowa.ville}" id="ville" style="border: 0px">
 								</TD>
 							</tr>
 						</table>
@@ -91,7 +91,7 @@
 								<td>
 									<button type="submit" name="modifier" value="modifier"
 										onclick="modifier.value=this.value" style="width: 90px">
-										modifier</button>
+										Modifier</button>
 								</td>
 							</tr>
 						</table>
