@@ -15,7 +15,7 @@
 	String ville = request.getParameter("ville");
 	String fixe = request.getParameter("fixe");
 	String mobile = request.getParameter("mobile");
-	int id = ((Integer) (session.getAttribute("id"))).intValue();
+	String id = (String)session.getAttribute("id");
 
 	// modification  des informations sur un  citoyen
 	if (modifier != null) {
@@ -28,7 +28,7 @@
 		pstmt.setString(3, mobile);
 		pstmt.setString(4, rue);
 		pstmt.setString(5, ville);
-		pstmt.setInt(6, id);
+		pstmt.setString(6, id);
 		pstmt.executeUpdate();
 	}
 %>
