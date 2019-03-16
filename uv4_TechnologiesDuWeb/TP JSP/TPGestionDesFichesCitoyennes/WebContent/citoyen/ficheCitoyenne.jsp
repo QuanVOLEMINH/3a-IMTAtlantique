@@ -23,28 +23,27 @@
 	<%@ include file="ligneIdentification.jspf"%>
 	<%@ include file="ouvreBase2.jsp"%>
 
+	<%
+		PreparedStatement pstmt = conn1.prepareStatement("SELECT * FROM fiche WHERE id = ?");
+		pstmt.setInt(1, numFiche);
+		ResultSet rset = pstmt.executeQuery();
+		String objet = null;
+		if (rset.next()) {
+			objet = rset.getString("objet");
+		}
+	%>
 
 
 
 	<!-- 
-*  recherche des caract�ristiques de la fiche dans la base 
+*  recherche des caracteristiques de la fiche dans la base 
 -->
-
-
-
-
-
-
-
-
-
-
 
 	<table style="width: 400;" class="Casebleu">
 		<tr>
 			<td width="100" class="Casebleu1">
 				<p>
-					<b> Objet : </b>
+					<b> Objet : <%=objet%></b>
 				</p>
 			</td>
 			<!-- 
@@ -52,19 +51,12 @@
 -->
 		</tr>
 	</table>
-	<p>D�tail de votre demande</p>
+	<p>Detail de votre demande</p>
 	<table style="width: 400;" class="Casebleu">
 		<tr>
-
-
 			<!-- 
 * et affichage  description et reponse
 -->
-
-
-
-
-
 		</tr>
 	</table>
 </body>

@@ -18,6 +18,8 @@
 		pstmt.setString(1, nomDocument);
 		pstmt.setInt(2, id);
 		pstmt.executeUpdate();
+		
+		session.setAttribute("nomDocument", nomDocument);
 	%>
 	<jsp:forward page="envoieMail.jsp" />
 </body>

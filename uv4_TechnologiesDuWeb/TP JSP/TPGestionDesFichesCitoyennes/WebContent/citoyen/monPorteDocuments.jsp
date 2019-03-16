@@ -42,10 +42,11 @@
 		<c:forEach items="${result.rows}" var="item">
 			<tr>
 				<td><c:out value="${item.id}" /></td>
-				<td><c:if test="${fn:endsWith(item.nom, '.pdf')}">
+				<td><c:if
+						test="${fn:endsWith(fn:toLowerCase(item.nom), '.pdf')}">
 						<img alt="" src="../image/pdf.jpg" width="40px">
 					</c:if> <c:if
-						test="${fn:endsWith(item.nom, '.jpg') || fn:endsWith(item.nom, '.jpeg') || fn:endsWith(item.nom, '.png')}">
+						test="${fn:endsWith(fn:toLowerCase(item.nom), '.jpg') || fn:endsWith(fn:toLowerCase(item.nom), '.jpeg') || fn:endsWith(fn:toLowerCase(item.nom), '.png')}">
 						<img alt="" src="../image/imageFile.png" width="40px">
 					</c:if></td>
 				<td><a href="<c:url value = "../images/${item.nom}" />"

@@ -3,5 +3,5 @@
 
 <%
 	session.invalidate();
-	response.sendRedirect("index.jsp?finsession=Session est fini");
+	response.sendRedirect("../index.jsp?finsession=Session est fini");
 %>

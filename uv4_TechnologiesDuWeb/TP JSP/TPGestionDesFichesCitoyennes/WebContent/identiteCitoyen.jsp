@@ -36,6 +36,7 @@
 			response.sendRedirect("index.jsp?erreur=" + erreurMessage);
 		} else {
 			gerelesCitoyen.inscrireUtilisateur();
+			response.sendRedirect("index.jsp");
 		}
 	} else if (connexion != null && connexion.equals("seconnecter")) {
 		if (gerelesCitoyen.recherchePersonne()) {
@@ -55,9 +56,9 @@
 			session.setAttribute("fonction", fonction);
 
 			if (fonction.equals("citoyen")) {
-				response.sendRedirect("mesInformationsPersonnelles.jsp");
+				response.sendRedirect("citoyen/mesInformationsPersonnelles.jsp");
 			} else if (fonction.equals("administrateur")) {
-				response.sendRedirect("gereDemandeCitoyen.jsp");
+				response.sendRedirect("citoyen/gereDemandeCitoyen.jsp");
 			}
 		} else {
 			erreurMessage = "erreur d'authentification";

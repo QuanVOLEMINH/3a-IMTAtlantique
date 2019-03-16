@@ -15,12 +15,24 @@
 	String sauver = (String) session.getAttribute("sauver");
 	int id = (Integer.valueOf((String) session.getAttribute("id"))).intValue();
 	String dateDemandemysql = request.getParameter("dateDemandemysql");
-
+	session.setAttribute("objet", objet);
+	session.setAttribute("description", description);
 	/*	
 	* inscription de la fiche dans la base   (id du Citoyen, objet, description, datedemande)
 	*   
 	*
 	*/
+	pstmt = conn1
+			.prepareStatement("Select * from fiche where objet = ? and description = ? and datedemande = ?");
+	pstmt.setString(1, objet);
+	pstmt.setString(2, description);
+	pstmt.setString(3, dateDemandemysql);
+
+	rset = pstmt.executeQuery();
+	if (rset.next()) {
+		response.sendRedirect("deposerUneDemande.jsp");
+		return;
+	}
 	pstmt = conn1.prepareStatement(
 			"INSERT INTO fiche(demandeur, objet, description, datedemande) VALUE(?, ?, ?, ?)");
 	pstmt.setInt(1, id);
@@ -38,7 +50,7 @@
 <%
 	} else {
 %>
-<!-- fiche sans document on retourne � une page d'accueil, par exemple *
+<!-- fiche sans document on retourne a une page d'accueil, par exemple *
 suivreMesDemandes.jsp -->
 <jsp:forward page="envoieMail.jsp" />
 

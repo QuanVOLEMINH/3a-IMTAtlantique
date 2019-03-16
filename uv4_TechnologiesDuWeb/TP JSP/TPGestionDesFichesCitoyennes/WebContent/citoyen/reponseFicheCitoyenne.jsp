@@ -1,49 +1,73 @@
-<%@ page isELIgnored="false" %>
+<%@ page isELIgnored="false"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="utile.DateBean"%>
 <%@ page import="java.sql.*"%>
 <%@ taglib uri="http://jakarta.apache.org/taglibs/dbtags" prefix="sql"%>
-<jsp:useBean id="laDate" class="utile.DateBean" scope="session" />
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head> 
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Demande Citoyenne Mairie Loc-Maria-Plouzané</title>
-     <link type="text/css" href="../style/deco.css" rel="stylesheet" >
- 
-  </head>
-  
-  
-  <body   class= "CaseGrise" >
-  <%  
-String nom= (String)session.getAttribute("nom");
-String dateDemande = laDate.getJour() + "/" + laDate.getMois() + "/" + laDate.getAnnee();    
-%>
-<table border="1" width="800" class="Casebleu1" >  
-<tr>
-<td>
-         <h2> Personne connectée : <%= nom %>  &nbsp;&nbsp; </h2>
- </td><td>
-          <h2> Date courante:  <%=dateDemande%> </h2>
-</td>
-</tr>
-</table>  
-  
- <!-- 
-* Sur une   ligne vous mettez le numéro de la fiche et son objet.
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Demande Citoyenne Mairie Loc-Maria-Plouzane</title>
+<link type="text/css" href="../style/deco.css" rel="stylesheet">
+
+</head>
+
+
+<body class="CaseGrise">
+
+	<%@ include file="ouvreBase2.jsp"%>
+	<%@ include file="accesmenuFicheAdministration.jspf"%>
+	<%
+		String numeroFiche = request.getParameter("numeroFiche");
+		PreparedStatement pstmt = conn1.prepareStatement("select * from fiche where id = ?");
+		pstmt.setString(1, numeroFiche);
+		ResultSet rset = pstmt.executeQuery();
+	%>
+	<h2>Fiche</h2>
+	<table border="1" width="800" class="Casebleu1">
+		<tr>
+			<th>Id</th>
+			<th>Objet</th>
+			<th>Description</th>
+		</tr>
+		<%
+			if (rset.next()) {
+		%>
+		<tr>
+			<td><%=rset.getString("id")%></td>
+			<td><%=rset.getString("objet")%></td>
+			<td><%=rset.getString("description")%></td>
+		</tr>
+		<%
+			}
+		%>
+	</table>
+	<br>
+	<form action="gestionBaseReponse.jsp">
+		<h2>Reponse</h2>
+		<input name="numFiche" value="<%=numeroFiche%>" type="hidden">
+		<textarea rows="5" cols="70" name="reponse" value="reponse"></textarea>
+		<br>
+		<button name="valider" value="valider" type="submit">Valider</button>
+		<button name="abandonner" value="abandonner" type="button"
+			onClick="self.location.href='gereDemandeCitoyen.jsp'" type="button">Abandonner</button>
+	</form>
+	<!-- 
+* Sur une   ligne vous mettez le numero de la fiche et son objet.
 *    Puis sa description
-*    Puis un " TEXTAREA" pour écrire la réponse.
+*    Puis un " TEXTAREA" pour ecrire la reponse.
 *            Enfin deux boutons, un pour "validez" et l'autre pour "abandonner".
-*     Le bouton "validez" appelle la page "gereBaseReponse" qui écrit tout simplement la réponse 
-*           dans la table fiche de la base de données.
+*     Le bouton "validez" appelle la page "gereBaseReponse" qui ï¿½crit tout simplement la rï¿½ponse 
+*           dans la table fiche de la base de donnï¿½es.
 *     Le bouton "abandonner" appelle la page reponseFicheCitoyenne.jsp
  
+ 	
  
  
- 
-  --> 
-  
-  
- </body>
+  -->
+
+
+</body>
 </html>

@@ -4,9 +4,9 @@
 <%@ page import="utile.*"%>
 <%@ page import="java.sql.*"%>
 <%@ include file="ouvreBase2.jsp"%>
-<h1>OKKK</h1>
+<h2>Envoie l'email</h2>
+<hr>
 <%
-
 	/*
 	Pour envoyer un mail, il faut en general disposer d'un operateur (serveur et port) qui dispose d'un serveur d'envoi de mail (serveur SMTP), 
 	et d'un compte chez cet operateur.
@@ -54,8 +54,100 @@
 	Recherche des caracteristiques de cette fiche et du mail de la personne connectee
 	   et appel de  envoieMailSecure
 	*/
-	String deLaPart = "quan.vo@imt-atlantique.net";
-	String host = "z.imt.fr"; // smtp
-	int port = 587;
-	// GereCitoyen.envoieMailSecure(objet, deLaPart, pour, contenu, motpasse);
+	String expediteur = request.getParameter("expediteur");
+	String motDePasse = request.getParameter("motDePasse");
+	String pour = request.getParameter("pour");
+	String serveur = request.getParameter("serveur");
+	String porte = request.getParameter("porte");
+	String envoyeurconnu = request.getParameter("envoyeurconnu");
+	String expeSession = (String) session.getAttribute("expediteur");
+	String mdpSession = (String) session.getAttribute("motDePasse");
+	String pourSession = (String) session.getAttribute("pour");
+	String svSession = (String) session.getAttribute("serveur");
+	String pSession = (String) session.getAttribute("porte");
+	String nomDocumentSession = (String) session.getAttribute("nomDocument");
+	String objet = (String) session.getAttribute("objet");
+	String description = (String) session.getAttribute("description");
+
+	if (envoyeurconnu == null) {
+		if (expeSession == null && mdpSession == null) {
+%>
+<form name="demande" method="get" action="envoieMail.jsp">
+	<table class="Casebleu1">
+
+		<tr>
+			<td><input type="email" maxlength="100" placeholder="Expediteur"
+				name="expediteur"></td>
+		</tr>
+		<tr>
+			<td><input type="password" maxlength="100"
+				placeholder="Mot De Passe" name="motDePasse"></td>
+		</tr>
+		<tr>
+			<td><input type="email" maxlength="100" placeholder="Pour"
+				name="pour"></td>
+		</tr>
+		<tr>
+			<td><input type="text" maxlength="100" placeholder="Serveur"
+				name="serveur"></td>
+		</tr>
+		<tr>
+			<td><input type="text" maxlength="100" placeholder="Porte"
+				name="porte"></td>
+		</tr>
+
+		<tr>
+			<td>
+				<button name="envoyeurconnu" type="submit" value="envoyeurconnu"
+					style="width: 240px">Envoyer</button>
+			</td>
+		</tr>
+
+	</table>
+
+</form>
+
+<%
+	} else {
+			if (nomDocumentSession != null) {
+				description += "\n Nom Doc: " + nomDocumentSession;
+			}
+			GereCitoyen.envoieMailSecure(objet, expeSession, pourSession, description, mdpSession, svSession,
+					pSession);
+%>
+<p style="color: 'green'">
+	<strong>Envoye avec succes</strong>
+</p>
+<button name="Retourner" type="button" value="Retourner"
+	style="width: 240px"
+	onClick="self.location.href='mesInformationsPersonnelles.jsp'">Retourner</button>
+<%
+	}
+
+	} else {
+		if (expeSession == null && mdpSession == null) {
+			if (expediteur != null && motDePasse != null) {
+				session.setAttribute("expediteur", expediteur);
+				session.setAttribute("motDePasse", motDePasse);
+				session.setAttribute("pour", pour);
+				session.setAttribute("serveur", serveur);
+				session.setAttribute("porte", porte);
+				response.sendRedirect("envoieMail.jsp");
+			}
+		} else {
+			if (nomDocumentSession != null) {
+				description += "\n Nom Doc: " + nomDocumentSession;
+			}
+			GereCitoyen.envoieMailSecure(objet, expeSession, pourSession, description, mdpSession, svSession,
+					pSession);
+%>
+<p style="color: 'green'">
+	<strong>Envoye avec succes</strong>
+</p>
+<button name="Retourner" type="button" value="Retourner"
+	style="width: 240px"
+	onClick="self.location.href='mesInformationsPersonnelles.jsp'">Retourner</button>
+<%
+	}
+	}
 %>

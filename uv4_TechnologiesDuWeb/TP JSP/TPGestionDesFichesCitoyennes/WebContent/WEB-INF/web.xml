@@ -11,4 +11,11 @@
 		<filter-class>utile.portier</filter-class>
 	</filter>
 
+	<filter-mapping>
+		<filter-name>portier</filter-name>
+		<url-pattern>
+			/citoyen/*
+		</url-pattern>
+	</filter-mapping>
+
 </web-app>

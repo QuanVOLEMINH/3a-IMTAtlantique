@@ -15,9 +15,13 @@
 	String reponse = request.getParameter("reponse");
 	String objet = null;
 	String description = null;
+	String deLaPart = "example@email.com";
+	String motpasse = "examplePass";
+	String serveur = "exampleServer";
+	String porte = "examplePort";
 
 	String valider = request.getParameter("valider");
-	int id = ((Integer) (session.getAttribute("id"))).intValue();
+	int id = Integer.parseInt((String) (session.getAttribute("id")));
 	String mail = (String) session.getAttribute("mail");
 	int numFiche = (request.getParameter("numFiche") != null)
 			? Integer.parseInt(request.getParameter("numFiche"))
@@ -43,8 +47,18 @@
 	/*
 	  utilisez  envoieMailSecure avec l'identifiant et le mot de passe
 	*/
+	
 
-	// ajouter  la reponse dans la fiche, si les parametre "valider" et "reponse" sont pr�sents
+	// ajouter  la reponse dans la fiche, si les parametre "valider" et "reponse" sont presents
+	if (valider != null && reponse != null) {
+		out.println("ok");
+		pstmt = conn1.prepareStatement("Update fiche SET reponse = ? where id = ?");
+		pstmt.setString(1, reponse);
+		pstmt.setInt(2, numFiche);
+		pstmt.executeUpdate();
+	}
+
+	response.sendRedirect("gereDemandeCitoyen.jsp");
 %>
 
 

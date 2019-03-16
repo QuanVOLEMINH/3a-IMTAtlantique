@@ -128,21 +128,23 @@ public class GereCitoyen {
 	}
 
 	// envoi d'un mail avec smpt qui demande l'identification
-	public static void envoieMailSecure(String objet, String deLaPart, String pour, String contenu, String motpasse) {
+	public static void envoieMailSecure(String objet, String deLaPart, String pour, String contenu, String motpasse,
+			String serveur, String porte) {
 
 		try {
-			System.out.println(
-					"dans envoi mail passe |" + motpasse + "| pour  |" + pour + "| expediteur  |" + deLaPart + "|");
+			System.out.println("dans envoi mail passe |" + motpasse + "| pour  |" + pour + "| expediteur  |" + deLaPart
+					+ "| serveur " + serveur + "| porte " + porte);
 			Properties props = new Properties();
-			// props.put("mail.smtp.host", "z.imt.fr");
+
 			// props.put("mail.transport.protocol", "smtps");
 			props.put("mail.transport.protocol", "smtps");
 			props.put("mail.smtps.auth", "true");
+			props.put("mail.smtps.host", serveur);
 			// props.put("mail.smtps.host", "z.telecom-bretagne.eu");
-			props.put("mail.smtp.host", "smtp.orange.fr");
-			props.put("mail.smtps.ssl.trust", "smtp.orange.fr");
+			// props.put("mail.smtp.host", "smtp.orange.fr");
+			// props.put("mail.smtps.ssl.trust", "smtp.orange.fr");
 			// props.put("mail.smtps.port", "587");
-			props.put("mail.smtps.port", "465");
+			props.put("mail.smtps.port", porte);
 			Session s = Session.getInstance(props, null);
 			MimeMessage message = new MimeMessage(s);
 			InternetAddress from = new InternetAddress(deLaPart);

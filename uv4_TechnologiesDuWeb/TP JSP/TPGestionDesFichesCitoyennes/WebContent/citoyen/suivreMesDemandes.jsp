@@ -45,7 +45,8 @@
 				}
 				i++;
 
-				out.println("<td>" + rset.getString("id") + "</td>");
+				out.println("<td><a href='ficheCitoyenne.jsp?numeroDemande=" + rset.getString("id") + "'>"
+						+ rset.getString("id") + "</a></td>");
 				out.println("<td>" + rset.getString("objet") + "</td>");
 				out.println("<td>" + rset.getString("description") + "</td>");
 				out.println("<td>" + rset.getString("datedemande") + "</td>");

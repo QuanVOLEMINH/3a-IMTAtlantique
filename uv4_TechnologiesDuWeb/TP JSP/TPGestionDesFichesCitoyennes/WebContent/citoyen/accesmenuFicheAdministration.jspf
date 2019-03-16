@@ -1,0 +1,45 @@
+<%@ page import="java.util.*"%>
+<jsp:useBean id="laDate" class="utile.DateBean" scope="session" />
+<table class="Casebleu"
+	style="border: 0px; margin: 0; padding: 0px; width: 800;">
+	<tr>
+		<td>
+			<H1 style="font-size: 42px;">Gestions des fiches citoyennes</H1>
+		<td>
+	</tr>
+	<tr>
+		<td>
+			<table class="Casebleu" style="border: 0px; margin: 0; padding: 0px;">
+				<tr>
+					<td>
+						<button name="choix"
+							onClick="self.location.href='deconnection.jsp'" type="button"
+							style="width: 100px">Se déconnecter</button>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<%
+	String nom = (String) session.getAttribute("nom");
+	String dateDemande = laDate.getJour() + "/" + laDate.getMois() + "/" + laDate.getAnnee();
+%>
+<table border="1" width="800" class="Casebleu1">
+	<tr>
+		<td>
+			<h2>
+				Personne connectee :
+				<%=nom%>
+				&nbsp;&nbsp;
+			</h2>
+		</td>
+		<td>
+			<h2>
+				Date courante:
+				<%=dateDemande%>
+			</h2>
+		</td>
+	</tr>
+</table>
+
