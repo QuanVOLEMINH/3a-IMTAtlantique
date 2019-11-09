@@ -1,0 +1,18 @@
+import numpy as np
+
+A = np.genfromtxt('data.csv', dtype=np.int64, delimiter=',')
+print(A)
+print(A.T)
+print(A + A.T)
+print((A + A.T) // 2)
+print(np.trace(A))
+print(A.shape)
+print(A * A)
+print(np.dot(A, A))
+Ainv = np.linalg.inv(A)
+print(Ainv)
+print(np.dot(Ainv, A))
+print(np.dot(A, Ainv))
+v = np.array([3, 2, 1, 4])
+print(np.cumsum(v))
+print(np.cumprod(v))
